@@ -5,11 +5,11 @@ import java.math.BigDecimal;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Positive;
 public class InsumoCreateDTO {
 
     @NotBlank(message = "El nombre es requerido")
-    @Min(value = 3, message = "El nombre debe tener entre 3 y 50 caracteres")
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
     private String nombre;
 
     @NotBlank(message = "El código interno es requerido")

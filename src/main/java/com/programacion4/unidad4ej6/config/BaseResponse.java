@@ -11,6 +11,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class BaseResponse<T> {
+
     private final T data;
     private final String message;
     private final List<String> errors;
@@ -20,7 +21,7 @@ public class BaseResponse<T> {
         return BaseResponse.<T>builder()
                 .data(data)
                 .message(message)
-                .errors(null)
+                .errors(List.of())
                 .timestamp(getCurrentTimestamp())
                 .build();
     }

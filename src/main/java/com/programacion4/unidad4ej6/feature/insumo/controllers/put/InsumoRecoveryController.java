@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.programacion4.unidad4ej6.config.BaseResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 
 import com.programacion4.unidad4ej6.feature.insumo.services.impl.domain.InsumoRecoveryService;
 import lombok.AllArgsConstructor;
@@ -21,13 +20,8 @@ public class InsumoRecoveryController {
 
     @PutMapping("/{id}/recovery")
     public ResponseEntity<BaseResponse<Void>> recoveryInsumo(
-        @PathVariable Long id
-    ) {
+            @PathVariable Long id) {
         insumoRecoveryService.recoveryInsumo(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT)
-        .body(BaseResponse.ok(
-            null, 
-            "Insumo recuperado correctamente"
-        ));
+        return ResponseEntity.noContent().build();
     }
 }

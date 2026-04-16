@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import com.programacion4.unidad4ej6.feature.insumo.dtos.request.MovimientoStockDTO;
 
 public class MovimientoStockMapper {
-    
+
     public static MovimientoStockResponseDTO toResponseDTO(MovimientoStock movimientoStock) {
         return MovimientoStockResponseDTO.builder()
                 .id(movimientoStock.getId())
@@ -18,13 +18,11 @@ public class MovimientoStockMapper {
     }
 
     public static MovimientoStock toEntity(MovimientoStockDTO dto, Insumo insumo) {
-        MovimientoStock movimientoStock = MovimientoStock.builder()
+        return MovimientoStock.builder()
                 .cantidad(dto.getCantidad())
                 .tipo(dto.getTipoMovimiento())
                 .fecha(LocalDateTime.now())
                 .insumo(insumo)
                 .build();
-
-        return new MovimientoStock();
     }
 }
